@@ -52,8 +52,6 @@
         android:text="@string/LoginBtn"
          />
 
-
-
     <Button
         android:id="@+id/signup"
         android:layout_width="fill_parent"

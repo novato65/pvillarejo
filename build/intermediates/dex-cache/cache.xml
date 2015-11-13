@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/modestovascofornas/Google Drive/Pedro Villarejo Android App/app/libs/Parse-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0134925989cd90163c416e94383b1b8ee88d02e2">
+        <dex dex="/Users/modestovascofornas/Google Drive/Pedro Villarejo Android App/app/build/intermediates/pre-dexed/debug/Parse-1.3.0-5ed658ce129d813308e2015303b7ddc0b2196937.jar" />
+    </item>
+
+</items>

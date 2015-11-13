@@ -49,14 +49,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
-        android:text="@string/LoginBtn" />
+        android:text="@string/LoginBtn"
+         />
 
     <Button
         android:id="@+id/signup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login"
-        android:text="@string/SignupBtn" />
+        android:text="@string/SignupBtn"
+        />
 
     <Button
         android:id="@+id/nologin"
@@ -65,6 +67,7 @@
         android:text="@string/LoginSin"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/signup" />
+        android:layout_below="@+id/signup"
+        />
 
 </RelativeLayout><!-- From: file:/Users/modestovascofornas/Google%20Drive/Pedro%20Villarejo%20Android%20App/app/src/main/res/layout/loginsignup.xml -->

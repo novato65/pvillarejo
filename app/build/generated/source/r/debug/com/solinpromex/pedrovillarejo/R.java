@@ -2217,11 +2217,11 @@ containing a value of this type.
         public static final int icon_only=0x7f0d0027;
         public static final int ifRoom=0x7f0d0024;
         public static final int image=0x7f0d004d;
-        public static final int imageButton=0x7f0d0079;
-        public static final int imageButton2=0x7f0d007a;
-        public static final int imageButton3=0x7f0d007b;
-        public static final int imageButton4=0x7f0d007c;
-        public static final int imageButton5=0x7f0d007d;
+        public static final int imageButton=0x7f0d0078;
+        public static final int imageButton2=0x7f0d0079;
+        public static final int imageButton3=0x7f0d007a;
+        public static final int imageButton4=0x7f0d007b;
+        public static final int imageButton5=0x7f0d007c;
         public static final int info=0x7f0d00a1;
         public static final int light=0x7f0d002c;
         public static final int line1=0x7f0d009b;
@@ -2308,7 +2308,7 @@ containing a value of this type.
         public static final int up=0x7f0d0009;
         public static final int useLogo=0x7f0d0013;
         public static final int username=0x7f0d0081;
-        public static final int webview=0x7f0d0078;
+        public static final int webview=0x7f0d007d;
         public static final int wide=0x7f0d0029;
         public static final int withText=0x7f0d0026;
         public static final int wrap_content=0x7f0d002d;

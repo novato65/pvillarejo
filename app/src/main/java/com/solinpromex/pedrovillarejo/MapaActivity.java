@@ -80,6 +80,6 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
                 .title(nombre_POI)
                 .snippet(direccion)
                 );
-        mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lon) , 15.0f) );
+        mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lon) , 16.0f) );
     }
 }

@@ -1,25 +1,34 @@
 package com.solinpromex.pedrovillarejo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
+
 public class WelcomeNoLogin extends Activity {
-
-	// Declare Variable
-	Button logout;
-
+	GridView gv;
+	Context context;
+	ArrayList prgmName;
+	public static String [] prgmNameList={"Llámeme","Autos Nuevos","Seminuevos","Descuento Proveedores","Citas a servicio","Mapa","Enviar Email","Enviar Mensaje","Compartir App"};
+	public static int [] prgmImages={R.mipmap.llamar,R.mipmap.nuevos,R.mipmap.seminuevos,R.mipmap.descuento,R.mipmap.citas,R.mipmap.mapa,R.mipmap.email,R.mipmap.sms,R.mipmap.compartir};
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// Get the view from singleitemview.xml
+
+
+
+
 		setContentView(R.layout.welcome_no_login);
-
-
+		gv=(GridView) findViewById(R.id.grid);
+		gv.setAdapter(new CustomAdapter(this, prgmNameList, prgmImages));
 	}
+
 }

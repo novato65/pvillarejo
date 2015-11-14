@@ -16,32 +16,59 @@ public final class R {
         public static final int splash=0x7f020002;
     }
     public static final class id {
-        public static final int login=0x7f050004;
-        public static final int logout=0x7f050009;
-        public static final int nologin=0x7f050006;
-        public static final int password=0x7f050003;
-        public static final int signup=0x7f050005;
-        public static final int txtpassword=0x7f050002;
-        public static final int txtuser=0x7f050008;
-        public static final int txtusername=0x7f050000;
-        public static final int txtwelcome=0x7f050007;
-        public static final int username=0x7f050001;
+        public static final int grid=0x7f060012;
+        public static final int grid_image=0x7f060006;
+        public static final int grid_text=0x7f060007;
+        public static final int imageButton=0x7f060001;
+        public static final int imageButton2=0x7f060002;
+        public static final int imageButton3=0x7f060003;
+        public static final int imageButton4=0x7f060004;
+        public static final int imageButton5=0x7f060005;
+        public static final int login=0x7f06000c;
+        public static final int logout=0x7f060011;
+        public static final int nologin=0x7f06000e;
+        public static final int password=0x7f06000b;
+        public static final int signup=0x7f06000d;
+        public static final int txtpassword=0x7f06000a;
+        public static final int txtuser=0x7f060010;
+        public static final int txtusername=0x7f060008;
+        public static final int txtwelcome=0x7f06000f;
+        public static final int username=0x7f060009;
+        public static final int webview=0x7f060000;
     }
     public static final class layout {
-        public static final int loginsignup=0x7f030000;
-        public static final int splash=0x7f030001;
-        public static final int welcome=0x7f030002;
-        public static final int welcome_no_login=0x7f030003;
+        public static final int activity_nuevos=0x7f040000;
+        public static final int activity_proveedores=0x7f040001;
+        public static final int activity_semi_nuevos=0x7f040002;
+        public static final int grid_single=0x7f040003;
+        public static final int loginsignup=0x7f040004;
+        public static final int splash=0x7f040005;
+        public static final int welcome=0x7f040006;
+        public static final int welcome_no_login=0x7f040007;
+    }
+    public static final class mipmap {
+        public static final int citas=0x7f030000;
+        public static final int compartir=0x7f030001;
+        public static final int descuento=0x7f030002;
+        public static final int email=0x7f030003;
+        public static final int home=0x7f030004;
+        public static final int llamar=0x7f030005;
+        public static final int mapa=0x7f030006;
+        public static final int nuevos=0x7f030007;
+        public static final int phone=0x7f030008;
+        public static final int seminuevos=0x7f030009;
+        public static final int sms=0x7f03000a;
+        public static final int usuario=0x7f03000b;
     }
     public static final class string {
-        public static final int LoginBtn=0x7f040000;
-        public static final int LoginSin=0x7f040001;
-        public static final int LogoutBtn=0x7f040002;
-        public static final int Password=0x7f040003;
-        public static final int SignupBtn=0x7f040004;
-        public static final int Username=0x7f040005;
-        public static final int Welcome=0x7f040006;
-        public static final int app_name=0x7f040007;
-        public static final int hello=0x7f040008;
+        public static final int LoginBtn=0x7f050000;
+        public static final int LoginSin=0x7f050001;
+        public static final int LogoutBtn=0x7f050002;
+        public static final int Password=0x7f050003;
+        public static final int SignupBtn=0x7f050004;
+        public static final int Username=0x7f050005;
+        public static final int Welcome=0x7f050006;
+        public static final int app_name=0x7f050007;
+        public static final int hello=0x7f050008;
     }
 }

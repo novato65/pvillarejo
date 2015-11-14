@@ -215,6 +215,36 @@ public class CustomAdapter extends BaseAdapter {
                 if (position == 4) {
 
                 }
+                if (position == 5) {
+
+                    //Toast.makeText(context, "Ha seleccionado LLAMAR" + result[position], Toast.LENGTH_LONG).show();
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("datos_contacto");
+                    query.whereEqualTo("tipo_contacto", "web_proveedores");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> scoreList, ParseException e) {
+                            if (e == null) {
+                                int len = scoreList.size();
+                                for (int i = 0; i < len; i++) {
+                                    ParseObject p = scoreList.get(i);
+                                    String web = p.getString("dato_contacto");
+
+                                    Log.d("score", "Web: " + web);
+
+
+                                    Intent myIntent = new Intent(context,MapaActivity.class);
+                                    myIntent.putExtra("web", web); //Optional parameters
+
+                                    context.startActivity(myIntent);
+
+                                }
+                            } else {
+                                Log.d("score", "Error: " + e.getMessage());
+                            }
+                        }
+                    });
+
+                }
             }
         });
 

@@ -31,6 +31,7 @@ public final class R {
         public static final int loginsignup=0x7f030000;
         public static final int splash=0x7f030001;
         public static final int welcome=0x7f030002;
+        public static final int welcome_no_login=0x7f030003;
     }
     public static final class string {
         public static final int LoginBtn=0x7f040000;

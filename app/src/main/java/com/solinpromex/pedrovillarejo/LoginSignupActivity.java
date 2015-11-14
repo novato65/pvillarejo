@@ -112,7 +112,9 @@ public class LoginSignupActivity extends Activity {
 
 			public void onClick(View arg0) {
 
+				Intent myIntent = new Intent(LoginSignupActivity.this,WelcomeNoLogin.class);
 
+				LoginSignupActivity.this.startActivity(myIntent);
 
 
 			}

@@ -30,9 +30,18 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             />
-        <activity android:name="com.solinpromex.pedrovillarejo.LoginSignupActivity" >
+        <activity android:name="com.solinpromex.pedrovillarejo.LoginSignupActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name="com.solinpromex.pedrovillarejo.Welcome" >
+        <activity android:name="com.solinpromex.pedrovillarejo.Welcome"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.solinpromex.pedrovillarejo.WelcomeNoLogin"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

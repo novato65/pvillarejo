@@ -2,11 +2,11 @@
 <resources>
     <!-- From: file:/Users/modestovascofornas/Google%20Drive/Pedro%20Villarejo%20Android%20App/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="LoginBtn">Login-Entrar</string>
-    <string name="LoginSin">Entrar sin cuenta de usuario</string>
+    <string name="LoginBtn">Entrar</string>
+    <string name="LoginSin">Entrar sin registrar</string>
     <string name="LogoutBtn">Salir</string>
     <string name="Password">Contraseña</string>
-    <string name="SignupBtn">Registrar-Crear Cuenta de Usuario</string>
+    <string name="SignupBtn">Registrar</string>
     <string name="Username">Usuario</string>
     <string name="Welcome">Bienvenid@ a la App de Pedro Villarejo!</string>
     <string name="app_name">Pedro Villarejo</string>

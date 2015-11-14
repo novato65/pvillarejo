@@ -27,6 +27,7 @@ public class CustomAdapter extends BaseAdapter {
     String [] result;
     Context context;
     int [] imageId;
+    String nombre_POI,latitud,longitud,direccion;
     private static LayoutInflater inflater=null;
     public CustomAdapter(WelcomeNoLogin mainActivity, String[] prgmNameList, int[] prgmImages) {
         // TODO Auto-generated constructor stub
@@ -35,6 +36,86 @@ public class CustomAdapter extends BaseAdapter {
         imageId=prgmImages;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //query a Parse
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("datos_contacto");
+        query.whereEqualTo("tipo_contacto", "nombre_POI");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    int len = scoreList.size();
+                    for (int i = 0; i < len; i++) {
+                        ParseObject p = scoreList.get(i);
+                        nombre_POI = p.getString("dato_contacto");
+
+                        Log.d("Nombre POI", "NOMBRE POI: " + nombre_POI);
+
+
+                    }
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+        ParseQuery<ParseObject> query1 = ParseQuery.getQuery("datos_contacto");
+        query1.whereEqualTo("tipo_contacto", "latitud");
+        query1.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    int len = scoreList.size();
+                    for (int i = 0; i < len; i++) {
+                        ParseObject p = scoreList.get(i);
+                        latitud = p.getString("dato_contacto");
+
+                        Log.d("LATITUD POI", "LATITUD POI: " + latitud);
+
+
+                    }
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("datos_contacto");
+        query2.whereEqualTo("tipo_contacto", "longitud");
+        query2.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    int len = scoreList.size();
+                    for (int i = 0; i < len; i++) {
+                        ParseObject p = scoreList.get(i);
+                        longitud = p.getString("dato_contacto");
+
+                        Log.d("LONGITUD POI", "LONGITUD POI: " + longitud);
+
+
+                    }
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+        ParseQuery<ParseObject> query5 = ParseQuery.getQuery("datos_contacto");
+        query5.whereEqualTo("tipo_contacto", "direccion");
+        query5.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    int len = scoreList.size();
+                    for (int i = 0; i < len; i++) {
+                        ParseObject p = scoreList.get(i);
+                        direccion = p.getString("dato_contacto");
+
+                        Log.d("DIRECCION POI", "DIRECCION POI: " + direccion);
+
+
+                    }
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+
+
 
     }
 
@@ -219,9 +300,10 @@ public class CustomAdapter extends BaseAdapter {
 
                     //Toast.makeText(context, "Ha seleccionado LLAMAR" + result[position], Toast.LENGTH_LONG).show();
 
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("datos_contacto");
-                    query.whereEqualTo("tipo_contacto", "web_proveedores");
-                    query.findInBackground(new FindCallback<ParseObject>() {
+
+                    ParseQuery<ParseObject> query3 = ParseQuery.getQuery("datos_contacto");
+                    query3.whereEqualTo("tipo_contacto", "web_proveedores");
+                    query3.findInBackground(new FindCallback<ParseObject>() {
                         public void done(List<ParseObject> scoreList, ParseException e) {
                             if (e == null) {
                                 int len = scoreList.size();
@@ -230,10 +312,21 @@ public class CustomAdapter extends BaseAdapter {
                                     String web = p.getString("dato_contacto");
 
                                     Log.d("score", "Web: " + web);
+                                    Log.d("LONGITUD POI  FINAL", "LONGITUD POI: " + longitud);
+
+                                    Log.d("LATITUD POI  FINAL", "LATITUD POI: " + latitud);
+
+
+                                    Log.d("DIRECCION POI FINAL", "DIRECCION POI: " + direccion);
 
 
                                     Intent myIntent = new Intent(context,MapaActivity.class);
-                                    myIntent.putExtra("web", web); //Optional parameters
+                                    myIntent.putExtra("nombre_POI", nombre_POI);
+                                    myIntent.putExtra("latitud", latitud);
+                                    myIntent.putExtra("longitud", longitud);
+                                    myIntent.putExtra("direccion", direccion);
+
+                                    //Optional parameters
 
                                     context.startActivity(myIntent);
 

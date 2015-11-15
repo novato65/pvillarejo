@@ -440,6 +440,54 @@ public class CustomAdapter extends BaseAdapter {
                     });
 
                 }
+
+                if (position == 8) {
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("datos_contacto");
+                    query.whereEqualTo("tipo_contacto", "URL_compartir_GooglePlay");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> scoreList, ParseException e) {
+                            if (e == null) {
+                                int len = scoreList.size();
+                                for (int i = 0; i < len; i++) {
+                                    ParseObject p = scoreList.get(i);
+                                    String email = p.getString("dato_contacto");
+
+
+                                    Log.d("EMAIL FINAL", "EMAIL: " + email);
+
+                                    subject = "Android App de PEDRO VILLAREJO";
+                                    body = "Te recomiendo que descargues la Android App de PEDRO VILLAREJO. Disponible en :"+email;
+                                    recipient = email;
+                                    Intent enviar = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
+                                    // prompts email clients only
+                                    enviar.setType("message/rfc822");
+
+                                    //enviar.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                                    enviar.putExtra(Intent.EXTRA_SUBJECT, "Android App de PEDRO VILLAREJO");
+                                    enviar.putExtra(Intent.EXTRA_TEXT, "Te recomiendo que descargues la Android App de PEDRO VILLAREJO. Disponible en :"+email);
+
+                                    try {
+                                        // the user can choose the email client
+                                        context.startActivity(Intent.createChooser(enviar, "Seleccione una aplicación para enviar el email..."));
+
+                                    } catch (android.content.ActivityNotFoundException ex) {
+                                        Toast.makeText(context, "No dispone de aplicaciones email.",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+
+
+
+
+
+                                }
+                            } else {
+                                Log.d("score", "Error: " + e.getMessage());
+                            }
+                        }
+                    });
+
+                }
             }
         });
 

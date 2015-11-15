@@ -88,6 +88,11 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.solinpromex.pedrovillarejo.MailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+        </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

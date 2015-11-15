@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,10 +25,13 @@ import java.util.List;
  */
 public class CustomAdapter extends BaseAdapter {
 
-    String [] result;
+    String [] result, recipients;
     Context context;
     int [] imageId;
-    String nombre_POI,latitud,longitud,direccion;
+
+
+
+    String nombre_POI,latitud,longitud,direccion,recipient,subject,body;
     private static LayoutInflater inflater=null;
     public CustomAdapter(WelcomeNoLogin mainActivity, String[] prgmNameList, int[] prgmImages) {
         // TODO Auto-generated constructor stub
@@ -329,6 +333,54 @@ public class CustomAdapter extends BaseAdapter {
                                     //Optional parameters
 
                                     context.startActivity(myIntent);
+
+                                }
+                            } else {
+                                Log.d("score", "Error: " + e.getMessage());
+                            }
+                        }
+                    });
+
+                }
+
+                if (position == 6) {
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("datos_contacto");
+                    query.whereEqualTo("tipo_contacto", "email_contacto");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> scoreList, ParseException e) {
+                            if (e == null) {
+                                int len = scoreList.size();
+                                for (int i = 0; i < len; i++) {
+                                    ParseObject p = scoreList.get(i);
+                                    String email = p.getString("dato_contacto");
+
+
+                                    Log.d("EMAIL FINAL", "EMAIL: " + email);
+
+                                    subject = "Enviado desde la Android App PEDRO VILLAREJO";
+                                    body = "Escriba aquí el contenido de su email";
+                                    recipient = email;
+                                    Intent enviar = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
+                                    // prompts email clients only
+                                    enviar.setType("message/rfc822");
+
+                                    enviar.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                                    enviar.putExtra(Intent.EXTRA_SUBJECT, "Enviado desde la Android App PEDRO VILLAREJO");
+                                    enviar.putExtra(Intent.EXTRA_TEXT   , "Escriba aquí el texto de su email");
+
+                                    try {
+                                        // the user can choose the email client
+                                        context.startActivity(Intent.createChooser(enviar, "Seleccione una aplicación para enviar el email..."));
+
+                                    } catch (android.content.ActivityNotFoundException ex) {
+                                        Toast.makeText(context, "No dispone de aplicaciones email.",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+
+
+
+
 
                                 }
                             } else {

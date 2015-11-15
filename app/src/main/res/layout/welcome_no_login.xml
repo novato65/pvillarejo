@@ -30,7 +30,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
+            android:id="@+id/homeButton"
             android:src="@mipmap/home"
             android:layout_weight="1" />
 

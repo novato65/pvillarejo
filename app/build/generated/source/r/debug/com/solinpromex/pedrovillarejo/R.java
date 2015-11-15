@@ -2213,6 +2213,7 @@ containing a value of this type.
         public static final int holo_light=0x7f0d002f;
         public static final int home=0x7f0d0005;
         public static final int homeAsUp=0x7f0d000e;
+        public static final int homeButton=0x7f0d00ac;
         public static final int hybrid=0x7f0d001f;
         public static final int icon=0x7f0d0050;
         public static final int icon_only=0x7f0d0027;

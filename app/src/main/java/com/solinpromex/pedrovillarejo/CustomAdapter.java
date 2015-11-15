@@ -3,6 +3,7 @@ package com.solinpromex.pedrovillarejo;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -367,7 +368,7 @@ public class CustomAdapter extends BaseAdapter {
 
                                     enviar.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
                                     enviar.putExtra(Intent.EXTRA_SUBJECT, "Enviado desde la Android App PEDRO VILLAREJO");
-                                    enviar.putExtra(Intent.EXTRA_TEXT   , "Escriba aquí el texto de su email");
+                                    enviar.putExtra(Intent.EXTRA_TEXT, "Escriba aquí el texto de su email");
 
                                     try {
                                         // the user can choose the email client
@@ -381,6 +382,55 @@ public class CustomAdapter extends BaseAdapter {
 
 
 
+
+                                }
+                            } else {
+                                Log.d("score", "Error: " + e.getMessage());
+                            }
+                        }
+                    });
+
+                }
+                if (position == 7) {
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("datos_contacto");
+                    query.whereEqualTo("tipo_contacto", "celular_sms");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> scoreList, ParseException e) {
+                            if (e == null) {
+                                int len = scoreList.size();
+                                for (int i = 0; i < len; i++) {
+                                    ParseObject p = scoreList.get(i);
+                                    String celular_sms = p.getString("dato_contacto");
+
+
+                                    Log.d("CELULAR", "CELULAR: " + celular_sms);
+
+// Initialize SmsManager Object// add the phone number in the data
+
+                                    Uri uri = Uri.parse("smsto:" + celular_sms);
+
+
+
+                                    Intent smsSIntent = new Intent(Intent.ACTION_SENDTO, uri);
+
+                                    // add the message at the sms_body extra field
+
+                                    smsSIntent.putExtra("sms_body", "Texto de su SMS");
+
+                                    try{
+
+                                        context.startActivity(smsSIntent);
+
+                                    } catch (Exception ex) {
+
+                                        Toast.makeText(context, "ERROR - SMS no enviado...",
+
+                                                Toast.LENGTH_LONG).show();
+
+                                        ex.printStackTrace();
+
+                                    }
 
                                 }
                             } else {

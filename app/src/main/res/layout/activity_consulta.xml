@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/fondoprincipal">
+
+
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:text="@string/CrearCuentaButton"
+        android:background="@android:color/darker_gray"
+        android:alpha="0.8"
+        android:textColor="#040404"
+        android:textStyle="bold"
+        android:layout_marginTop="90dp" />
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:layout_below="@+id/login"
+        android:text="@string/CrearCuenta"
+        android:id="@+id/textView"
+        android:background="@android:color/darker_gray"
+        android:autoText="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:text="@string/CitaButton"
+        android:background="@android:color/darker_gray"
+        android:alpha="0.8"
+        android:textColor="#040404"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:layout_below="@+id/signup"
+        android:text="@string/CrearCita"
+        android:id="@+id/textView2"
+        android:background="@android:color/darker_gray"
+        android:autoText="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#0f142e"
+
+        android:gravity="fill_horizontal|bottom">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeButton"
+            android:src="@mipmap/home"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/llamarButton"
+            android:src="@mipmap/llamar"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailButton"
+            android:src="@mipmap/email"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton4"
+            android:src="@mipmap/citas"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton5"
+            android:src="@mipmap/usuario"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</RelativeLayout>

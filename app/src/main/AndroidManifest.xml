@@ -79,6 +79,10 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name="com.solinpromex.pedrovillarejo.ConsultaLogin"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

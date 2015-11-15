@@ -29,7 +29,7 @@ public class WelcomeNoLogin extends Activity {
 	GridView gv;
 	Context context;
 	ArrayList prgmName;
-	ImageButton homeButton, llamarButton, emailButton;
+	ImageButton homeButton, llamarButton, emailButton, citaButton;
 	public static String[] prgmNameList = {"Llámeme", "Autos Nuevos", "Seminuevos", "Descuento Proveedores", "Citas a servicio", "Mapa", "Enviar Email", "Enviar Mensaje", "Compartir App"};
 	public static int[] prgmImages = {R.mipmap.llamar, R.mipmap.nuevos, R.mipmap.seminuevos, R.mipmap.descuento, R.mipmap.citas, R.mipmap.mapa, R.mipmap.email, R.mipmap.sms, R.mipmap.compartir};
 
@@ -45,6 +45,7 @@ public class WelcomeNoLogin extends Activity {
 		addListenerHomeButton();
 		addListenerLlamarButton();
 		addListenerEmailButton();
+		addListenerCitaButton();
 	}
 
 
@@ -105,6 +106,25 @@ public class WelcomeNoLogin extends Activity {
 		});
 
 	}
+	public void addListenerCitaButton() {
+
+		homeButton = (ImageButton) findViewById(R.id.citaButton);
+
+		homeButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				Intent myIntent = new Intent(WelcomeNoLogin.this, ConsultaLogin.class);
+
+				WelcomeNoLogin.this.startActivity(myIntent);
+
+			}
+
+		});
+
+	}
+
 	public void addListenerEmailButton() {
 
 		emailButton = (ImageButton) findViewById(R.id.emailButton);

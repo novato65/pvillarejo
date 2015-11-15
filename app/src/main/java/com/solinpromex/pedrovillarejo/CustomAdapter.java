@@ -300,6 +300,16 @@ public class CustomAdapter extends BaseAdapter {
 
                 if (position == 4) {
 
+
+
+                                    Intent myIntent = new Intent(context,ConsultaLogin.class);
+
+
+                                    context.startActivity(myIntent);
+
+
+
+
                 }
                 if (position == 5) {
 

@@ -2198,6 +2198,7 @@ containing a value of this type.
         public static final int donate_with=0x7f0d003b;
         public static final int donate_with_google=0x7f0d003c;
         public static final int edit_query=0x7f0d006a;
+        public static final int emailButton=0x7f0d00ae;
         public static final int end=0x7f0d001b;
         public static final int end_padder=0x7f0d00a7;
         public static final int expand_activities_button=0x7f0d004c;

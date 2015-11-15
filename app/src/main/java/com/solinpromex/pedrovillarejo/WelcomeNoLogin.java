@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -28,7 +29,7 @@ public class WelcomeNoLogin extends Activity {
 	GridView gv;
 	Context context;
 	ArrayList prgmName;
-	ImageButton homeButton, llamarButton;
+	ImageButton homeButton, llamarButton, emailButton;
 	public static String[] prgmNameList = {"Llámeme", "Autos Nuevos", "Seminuevos", "Descuento Proveedores", "Citas a servicio", "Mapa", "Enviar Email", "Enviar Mensaje", "Compartir App"};
 	public static int[] prgmImages = {R.mipmap.llamar, R.mipmap.nuevos, R.mipmap.seminuevos, R.mipmap.descuento, R.mipmap.citas, R.mipmap.mapa, R.mipmap.email, R.mipmap.sms, R.mipmap.compartir};
 
@@ -43,6 +44,7 @@ public class WelcomeNoLogin extends Activity {
 
 		addListenerHomeButton();
 		addListenerLlamarButton();
+		addListenerEmailButton();
 	}
 
 
@@ -97,6 +99,62 @@ public class WelcomeNoLogin extends Activity {
 					}
 				});
 
+
+			}
+
+		});
+
+	}
+	public void addListenerEmailButton() {
+
+		emailButton = (ImageButton) findViewById(R.id.emailButton);
+
+		emailButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				ParseQuery<ParseObject> query = ParseQuery.getQuery("datos_contacto");
+				query.whereEqualTo("tipo_contacto", "email_contacto");
+				query.findInBackground(new FindCallback<ParseObject>() {
+					public void done(List<ParseObject> scoreList, ParseException e) {
+						if (e == null) {
+							int len = scoreList.size();
+							for (int i = 0; i < len; i++) {
+								ParseObject p = scoreList.get(i);
+								String email = p.getString("dato_contacto");
+
+
+								Log.d("EMAIL FINAL", "EMAIL: " + email);
+
+
+								Intent enviar = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
+								// prompts email clients only
+								enviar.setType("message/rfc822");
+
+								enviar.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+								enviar.putExtra(Intent.EXTRA_SUBJECT, "Enviado desde la Android App PEDRO VILLAREJO");
+								enviar.putExtra(Intent.EXTRA_TEXT, "Escriba aquí el texto de su email");
+
+								try {
+									// the user can choose the email client
+									startActivity(Intent.createChooser(enviar, "Seleccione una aplicación para enviar el email..."));
+
+								} catch (android.content.ActivityNotFoundException ex) {
+									Toast.makeText(WelcomeNoLogin.this, "No dispone de aplicaciones email.",
+											Toast.LENGTH_LONG).show();
+								}
+
+
+
+
+
+							}
+						} else {
+							Log.d("score", "Error: " + e.getMessage());
+						}
+					}
+				});
 
 			}
 

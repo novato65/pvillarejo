@@ -2231,6 +2231,7 @@ containing a value of this type.
         public static final int linearLayout=0x7f0d0077;
         public static final int listMode=0x7f0d000a;
         public static final int list_item=0x7f0d004f;
+        public static final int llamarButton=0x7f0d00ad;
         public static final int login=0x7f0d0089;
         public static final int logo_only=0x7f0d003d;
         public static final int logout=0x7f0d00aa;

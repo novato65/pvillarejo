@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,17 +28,16 @@ public class CitaServicio_NoLogin_4 extends Activity{
 
 
     Button continuarButton, cancelarButton;
-    private DatePicker datePicker;
-    private Calendar calendar;
-    private TextView dateView;
-    private int year, month, day;
-    String nombre, email, cel, tel,fecha,hora;
+
+    String nombre, email, cel, tel,fecha,hora,vehiculo,tipo,ano,comentarios;
+    TextView tvNombre, tvEmail,tvCel,tvTel,tvFecha,tvHora,tvVehiculo,tvTipo,tvAno;
+    EditText tvComentarios;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cita_no_login_3);
+        setContentView(R.layout.activity_cita_no_login_4);
 
         Intent intent = getIntent();
         nombre= intent.getStringExtra("nombre");
@@ -46,26 +46,30 @@ public class CitaServicio_NoLogin_4 extends Activity{
         tel= intent.getStringExtra("tel");
         fecha= intent.getStringExtra("fecha");
         hora= intent.getStringExtra("hora");
+        vehiculo= intent.getStringExtra("vehiculo");
+        tipo= intent.getStringExtra("tipo");
+        ano= intent.getStringExtra("ano");
 
+        tvNombre = (TextView) findViewById(R.id.tvNombre);
+        tvEmail = (TextView) findViewById(R.id.tvEmail);
+        tvCel = (TextView) findViewById(R.id.tvCelular);
+        tvTel = (TextView) findViewById(R.id.tvTel);
+        tvFecha = (TextView) findViewById(R.id.tvFecha);
+        tvHora = (TextView) findViewById(R.id.tvHora);
+        tvVehiculo = (TextView) findViewById(R.id.tvVehiculo);
+        tvTipo = (TextView) findViewById(R.id.tvTipo);
+        tvAno = (TextView) findViewById(R.id.tvAno);
+        tvComentarios = (EditText) findViewById(R.id.tvComentarios);
 
-        final Spinner country = (Spinner) findViewById(R.id.spinner);
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("autos");
-        query.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> list, ParseException e) {
-                if (e == null) {
-                    ArrayList<String> nameList = new ArrayList<>();
-                    for(ParseObject object : list) {
-                        nameList.add(object.getString("modelo"));
-                    }
-                    ArrayAdapter adapter = new ArrayAdapter(
-                            getApplicationContext(),android.R.layout.simple_list_item_1 ,nameList);
-                    country.setAdapter(adapter);
-                } else {
-
-                }
-            }
-        });
+        tvNombre.setText(nombre);
+        tvEmail.setText(email);
+        tvCel.setText(cel);
+        tvTel.setText(tel);
+        tvFecha.setText(fecha);
+        tvHora.setText(hora);
+        tvVehiculo.setText(vehiculo);
+        tvTipo.setText(tipo);
+        tvAno.setText(ano);
 
 
 
@@ -89,25 +93,22 @@ public class CitaServicio_NoLogin_4 extends Activity{
             public void onClick(View arg0) {
 
 
+                comentarios = tvComentarios.getText().toString();
+                Log.d("CITA A SERVICIO3", "COMENTARIOS: " + comentarios);
 
 
+                ParseObject cita_servicio = new ParseObject("citas_servicio");
+                cita_servicio.put("Nombre_cliente", nombre);
+                cita_servicio.put("email_cliente", email);
+                cita_servicio.put("celular_cliente", cel);
+                cita_servicio.put("tel_cliente", tel);
+                cita_servicio.put("vehiculo_cliente", vehiculo);
+                cita_servicio.put("ano_vehiculo", ano);
+                cita_servicio.put("tipo_cita", tipo);
+                cita_servicio.put("fecha_cita", fecha);
+                cita_servicio.put("comentarios", comentarios);
+                cita_servicio.saveInBackground();
 
-
-                Log.d("CITA A SERVICIO", "NOMBRE: " + nombre);
-                Log.d("CITA A SERVICIO", "EMAIL: " + email);
-                Log.d("CITA A SERVICIO", "CEL: " + cel);
-                Log.d("CITA A SERVICIO", "TEL: " + tel);
-
-                Intent myIntent = new Intent(CitaServicio_NoLogin_4.this, CitaServicio_NoLogin_4.class);
-
-
-                myIntent.putExtra("nombre", nombre);
-                myIntent.putExtra("email", email);
-                myIntent.putExtra("celular", cel);
-                myIntent.putExtra("tel", tel);
-
-
-                CitaServicio_NoLogin_4.this.startActivity(myIntent);
 
             }
 

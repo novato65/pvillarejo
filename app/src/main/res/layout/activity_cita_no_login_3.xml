@@ -75,11 +75,11 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/txtnombre"
+                android:id="@+id/txtvehiculoll"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Seleccione vehículo"
@@ -97,7 +97,31 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
+            <TextView
+                android:id="@+id/txtvehiculol"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Seleccione vehículo"
+                android:textStyle="bold"
+                android:textColor="#f8d0d0"
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left|top" />
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner2"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"

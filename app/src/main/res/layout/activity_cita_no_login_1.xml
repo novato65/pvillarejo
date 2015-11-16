@@ -74,7 +74,7 @@
             android:layout_marginTop="20dp" />
 
         <TextView
-            android:id="@+id/txtnombre"
+            android:id="@+id/txtvehiculo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/NombreCliente"
@@ -87,7 +87,7 @@
             android:id="@+id/editnombre"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtnombre"
+            android:layout_below="@+id/txtvehiculo"
             android:inputType="text"
             android:textColor="#f8d0d0"
             android:paddingLeft="10dp"

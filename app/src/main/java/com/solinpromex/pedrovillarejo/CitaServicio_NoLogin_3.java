@@ -37,7 +37,7 @@ public class CitaServicio_NoLogin_3 extends Activity{
     private TextView dateView;
     private int year, month, day;
     String nombre, email, cel, tel,fecha,hora,vehiculo;
-    Spinner spinner1;
+    Spinner spinner1,spinner2;
 
 
     @Override
@@ -73,6 +73,26 @@ public class CitaServicio_NoLogin_3 extends Activity{
                 }
             }
         });
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        ParseQuery<ParseObject> query2 = new ParseQuery<ParseObject>("anos");
+        query2.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                if (e == null) {
+                    ArrayList<String> nameList = new ArrayList<>();
+                    for(ParseObject object : list) {
+                        nameList.add(object.getString("ano_vehiculo"));
+                    }
+                    ArrayAdapter adapter = new ArrayAdapter(
+                            getApplicationContext(),android.R.layout.simple_list_item_1 ,nameList);
+                    spinner2.setAdapter(adapter);
+
+                } else {
+
+                }
+            }
+        });
+
 
 
 

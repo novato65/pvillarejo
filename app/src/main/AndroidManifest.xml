@@ -95,6 +95,10 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name="com.solinpromex.pedrovillarejo.CitaServicio_NoLogin_4"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

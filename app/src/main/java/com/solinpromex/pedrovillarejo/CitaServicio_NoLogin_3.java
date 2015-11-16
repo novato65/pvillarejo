@@ -36,8 +36,8 @@ public class CitaServicio_NoLogin_3 extends Activity{
     private Calendar calendar;
     private TextView dateView;
     private int year, month, day;
-    String nombre, email, cel, tel,fecha,hora,vehiculo;
-    Spinner spinner1,spinner2;
+    String nombre, email, cel, tel,fecha,hora,vehiculo,ano,tipo;
+    Spinner spinner1,spinner2,spinner3;
 
 
     @Override
@@ -92,6 +92,26 @@ public class CitaServicio_NoLogin_3 extends Activity{
                 }
             }
         });
+        spinner3 = (Spinner) findViewById(R.id.spinner3);
+        ParseQuery<ParseObject> query3 = new ParseQuery<ParseObject>("tipos_citas");
+        query3.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                if (e == null) {
+                    ArrayList<String> nameList = new ArrayList<>();
+                    for(ParseObject object : list) {
+                        nameList.add(object.getString("tipo_cita"));
+                    }
+                    ArrayAdapter adapter = new ArrayAdapter(
+                            getApplicationContext(),android.R.layout.simple_list_item_1 ,nameList);
+                    spinner3.setAdapter(adapter);
+
+                } else {
+
+                }
+            }
+        });
+
 
 
 
@@ -123,6 +143,8 @@ public class CitaServicio_NoLogin_3 extends Activity{
 
 
                 vehiculo = spinner1.getSelectedItem().toString();
+                ano = spinner2.getSelectedItem().toString();
+                tipo = spinner3.getSelectedItem().toString();
 
 
                 Log.d("CITA A SERVICIO3", "NOMBRE: " + nombre);
@@ -132,6 +154,8 @@ public class CitaServicio_NoLogin_3 extends Activity{
                 Log.d("CITA A SERVICIO3", "FECHA: " + fecha);
                 Log.d("CITA A SERVICIO3", "HORA: " + hora);
                 Log.d("CITA A SERVICIO3", "VEHICULO: " + vehiculo);
+                Log.d("CITA A SERVICIO3", "año: " + ano);
+                Log.d("CITA A SERVICIO3", "TIPO: " + tipo);
 
                 Intent myIntent = new Intent(CitaServicio_NoLogin_3.this, CitaServicio_NoLogin_4.class);
 
@@ -142,6 +166,9 @@ public class CitaServicio_NoLogin_3 extends Activity{
                 myIntent.putExtra("tel", tel);
                 myIntent.putExtra("fecha", fecha);
                 myIntent.putExtra("hora", hora);
+                myIntent.putExtra("vehiculo", vehiculo);
+                myIntent.putExtra("ano", ano);
+                myIntent.putExtra("tipo", tipo);
 
 
                 CitaServicio_NoLogin_3.this.startActivity(myIntent);

@@ -264,15 +264,22 @@
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <!-- From: file:/Users/modestovascofornas/Google%20Drive/Pedro%20Villarejo%20Android%20App/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="CancelarBtn">Cancelar</string>
+    <string name="CelularCliente">Celular del cliente</string>
     <string name="CitaButton">Crear Cita a Servicio</string>
     <string name="CrearCita">(Puede crear una cita a servicio sin registrarse, pero no se mantendrá un histórico de la cita)</string>
     <string name="CrearCuenta">(Es recomendable crear una cuenta de usuario para mantener un histórico de sus citas a servicio y vehículos)</string>
     <string name="CrearCuentaButton">Crear Cuenta de Usuario</string>
+    <string name="EmailCliente">Email del cliente</string>
     <string name="LoginBtn">Entrar</string>
     <string name="LoginSin">Entrar sin registrar</string>
     <string name="LogoutBtn">Salir</string>
+    <string name="NombreCliente">Nombre del cliente</string>
     <string name="Password">Contraseña</string>
+    <string name="SeguirBtn">Continuar</string>
     <string name="SignupBtn">Registrar</string>
+    <string name="TelCliente">Teléfono del cliente</string>
+    <string name="TituloCitaSin">CITA A SERVICIO</string>
     <string name="Username">Usuario</string>
     <string name="Welcome">Bienvenid@ a la App de Pedro Villarejo!</string>
     <!-- From: file:/Users/modestovascofornas/Google%20Drive/Pedro%20Villarejo%20Android%20App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->

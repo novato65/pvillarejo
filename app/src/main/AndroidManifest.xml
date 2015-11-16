@@ -83,6 +83,18 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name="com.solinpromex.pedrovillarejo.CitaServicio_NoLogin_1"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.solinpromex.pedrovillarejo.CitaServicio_NoLogin_2"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.solinpromex.pedrovillarejo.CitaServicio_NoLogin_3"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

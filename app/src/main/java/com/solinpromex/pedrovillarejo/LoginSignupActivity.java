@@ -34,8 +34,8 @@ public class LoginSignupActivity extends Activity {
 		password = (EditText) findViewById(com.solinpromex.pedrovillarejo.R.id.password);
 
 		// Locate Buttons in main.xml
-		loginbutton = (Button) findViewById(com.solinpromex.pedrovillarejo.R.id.login);
-		signup = (Button) findViewById(com.solinpromex.pedrovillarejo.R.id.signup);
+		loginbutton = (Button) findViewById(com.solinpromex.pedrovillarejo.R.id.crearCuenta);
+		signup = (Button) findViewById(com.solinpromex.pedrovillarejo.R.id.crearCita);
 		nologin = (Button) findViewById(com.solinpromex.pedrovillarejo.R.id.nologin);
 
 		// Login Button Click Listener
